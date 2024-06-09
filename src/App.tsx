@@ -1,11 +1,29 @@
+import { useState } from "react";
 import TodoItem from "./components/TodoItem";
 import { todosData } from "./data/todos";
+import { Todo } from "./types/todo";
+import TodoForm from "./components/TodoForm";
+
 
 
 function App() {
+  const [Todos, setTodos] = useState<Todo[]>(todosData)
 
   function setTodoCompleted(id: number, completed: boolean) {
-    alert(`Todo with id ${id} is now ${completed ? "completed" : "active"}`)
+    setTodos((prevTodos) => prevTodos.map(todo => (
+      todo.id === id ? {...todo, completed} : todo
+    )))
+  }
+
+  function addTodo(title: string) {
+    setTodos((prevTodos) => [
+      {
+        id: prevTodos.length + 1,
+        title,
+        completed: false
+      },
+      ...prevTodos
+    ])
   }
 
   return (
@@ -15,13 +33,14 @@ function App() {
     </h1>
     <div className="max-w-lg mx-auto bg-slate-100 rounded p-5 border-gray-400 border-2">
       <div className="space-y-2">
-        {todosData.map(todo => (
+        {Todos.map((todo) => (
           <TodoItem
           key={todo.id}
           todo={todo}
           onCompletedChange={setTodoCompleted}
           />
         ))}
+        <TodoForm onSubmit={addTodo}/>
       </div>
     </div>
    </main>
