@@ -1,3 +1,4 @@
+import { Trash2Icon } from "lucide-react";
 import { Todo } from "../types/todo";
 
 interface TodoItemProps {
@@ -18,9 +19,9 @@ const TodoItem = ({todo, onCompletedChange, onDelete}: TodoItemProps) => {
             <span className={todo.completed ? "line-through text-gray-400" : ""}>{todo.title}</span>
             </div>
             <button 
-            className="hover:text-red-500 scale-125 px-2"
+            className="hover:text-red-500 scale-100 px-2"
             onClick={() => onDelete(todo.id)}
-            ><span>X</span></button>
+            ><Trash2Icon/></button>
         </label>
     </div> 
     );

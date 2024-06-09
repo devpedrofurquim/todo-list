@@ -26,8 +26,12 @@ function App() {
     ])
   }
 
+  function deleteTodo(id: number): void {
+    setTodos((prevTodos) => prevTodos.filter(todo => todo.id !== id))
+  }
+
   return (
-   <main className="p-10 h-screen space-y-5">
+   <main className="p-10 h-screen space-y-5 overflow-y-auto">
     <h1 className="font-bold text-3xl text-center">
       Todo App
     </h1>
@@ -35,6 +39,7 @@ function App() {
       <TodoList 
       Todos={Todos}
       onCompletedChange={setTodoCompleted}
+      onDelete={deleteTodo}
       />
       <TodoForm onSubmit={addTodo}/>
     </div>
