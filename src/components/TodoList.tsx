@@ -27,6 +27,7 @@ const TodoList = ({
           key={todo.id}
           todo={todo}
           onCompletedChange={onCompletedChange}
+          onDelete={onDelete}
           />
         ))}
       </div>
