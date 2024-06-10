@@ -1,3 +1,4 @@
+import { PartyPopper } from "lucide-react";
 import { Todo } from "../types/todo";
 import TodoItem from "./TodoItem";
 
@@ -20,7 +21,8 @@ const TodoList = ({
         return a.completed ? 1 : -1;
     })
 
-    return ( 
+    return (
+        <>
         <div className="space-y-2">
         {todosSorted.map((todo) => (
           <TodoItem
@@ -31,6 +33,13 @@ const TodoList = ({
           />
         ))}
       </div>
+      {Todos.length === 0 && (
+        <div className="flex grow items-center justify-center gap-2">
+            <p className="text-center text-md">No more todos! Congrats!</p>
+            <PartyPopper color="green"/>
+        </div>
+      )}
+        </> 
      );
 }
  
