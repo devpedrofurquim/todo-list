@@ -4,19 +4,9 @@ import App from './App'
 
 describe('Renders App', () => {
 
-    beforeEach(() => {
-        render(<App/>)
-    })
+    beforeEach(() => render(<App/>));
 
-    it('Renders App', () => {
-        render(<App/>)
-    })
-
-    it('Todo App text is rendered', () => {
-        expect(screen.getByText('Todo App')).toBeInTheDocument();
-    })
-
-    it('Todo App text is rendered', () => {
+    it('Renders Todo App Title', () => {
         expect(screen.getByText('Todo App')).toBeInTheDocument();
     })
 })
