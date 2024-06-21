@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Todo } from "../types/todo";
 import { todosData } from "../data/todos";
 
-export default function useTodos() {
+export const useTodos = () => {
     const [Todos, setTodos] = useState<Todo[]>(() => {
         const savedTodos: Todo[] = JSON.parse(localStorage.getItem("todos") || "[]");
         return savedTodos.length > 0 ? savedTodos : todosData;
