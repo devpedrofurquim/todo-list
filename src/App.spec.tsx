@@ -90,4 +90,7 @@ describe("useTodos", () => {
         expect(mockAddTodo).toHaveBeenCalledWith('Novo Todo');
 
     })
+
+    //TODO: Implement DeleteAllCompleted Test
+    //TODO: Implement DeleteTodo test
 })
